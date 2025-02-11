@@ -232,3 +232,241 @@
         }
     </style>
 </head>
+<body>
+
+  <header>
+    <h1 translate="no">GZ</h1>
+    <div>
+      <a href="pagedetraduction.html">
+        <i class="fas fa-language share-icon"></i> <!-- 번역 아이콘 -->
+      </a>
+      <a href="Partage.html">
+        <i class="fas fa-share-alt share-icon"></i>
+      </a>
+    </div>
+  </header>
+
+  <div class="divider"></div> <!-- 구분선이 여기 추가됨 -->
+
+  <div class="button-container">
+    <a class="button" href="Faq.html" translate="yes"><i class="fas fa-question-circle"></i>자주 묻는 질문</a>
+    <a class="button" href="Statistiques.html" id="statistiquesButton">
+      <i class="fas fa-chart-bar"></i> 발견</a>
+    <a class="button" href="Contact.html"><i class="fas fa-envelope"></i>연락처</a>
+    <a class="button" href="Terms.html"><i class="fas fa-file-contract"></i>이용 약관</a>
+    <a class="button" href="Confidentialité.html"><i class="fas fa-file-contract"></i>개인정보 보호</a>
+  </div>
+
+  <script>
+    const button = document.getElementById('statistiquesButton');
+
+    let colors = ['lawngreen', 'white'];
+    let index = 0;
+
+    setInterval(() => {
+      button.style.borderBottom = `4px solid ${colors[index]}`;
+      index = (index + 1) % colors.length; // 색상 순환
+    }, 400); // 400밀리초마다 색상 변경
+  </script>
+
+  <div class="divider"></div>
+
+  <div class="notification">
+    <span class="notification-text">우리 세대의 비밀을 함께 발견해 봅시다.</span>
+    <div class="new-message-badge"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer-title">
+    몇 번의 클릭으로 우리 세대의 비밀을 발견하세요!
+  </div>
+
+  <input type="date" class="date-input" id="birthdate" placeholder="생년월일 선택" min="1900-01-01" max="" />
+  <select class="country-select" id="countrySelect">
+    <option value="" disabled selected>출생 국가 선택</option>
+  </select>
+  <p style="text-align: center; color: black; font-size: 0.7em; margin-top: 5px; text-decoration: underline; text-decoration-color: rgb(0, 123, 191);">
+    제출함으로써 이용 약관에 동의합니다.
+  </p>
+  <button class="submit-button" type="submit">제출</button>
+
+  <i class="fas fa-redo reset-icon" id="resetButton" title="리셋"></i>
+
+  <div class="divider"></div>
+
+  <div class="rectangle">
+    <div class="text-line bold" style="font-size: 1em; color: #0056b3;">어떻게 작동하나요?</div>
+    <div class="text-line"> 두 개의 선택기가 있습니다: 첫 번째는 생년월일을 선택하는 달력이고, 두 번째는 출생 국가를 선택하는 선택기입니다. 선택을 마친 후 "제출"을 클릭하세요. 그 다음 생물학적 성별을 지정하라는 요청을 받게 됩니다. 이 옵션을 클릭하여 기여자가 됩니다. 마지막으로, 녹색으로 깜빡이는 "발견" 버튼을 클릭하세요. 그러면 두 개의 새로운 선택기가 나타납니다: 선호에 따라 탐색하여 통계를 확인하세요. </div>
+  </div>
+
+  <div class="text-line" style="text-align: center; color: black;">
+    <span style="color: #007bff;">_____</span> 아무것도 놓치지 마세요 <span style="color: #007bff;">_____</span>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="logo-container">
+        <a href="https://www.facebook.com/share/15nGTcCb4i/.html" target="_blank" class="logo">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/GZWRD?t=g7yvHCDW2-xPLaTTgea-YA&s=09.html" target="_blank" class="logo">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/gzw0orld?igsh=a3M3aWpob21qcmFn.html" target="_blank" class="logo">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://t.me/WorldGZ" target="_blank" class="logo">
+          <i class="fab fa-telegram-plane"></i>
+        </a>
+      </div>
+      <div class="copyright">
+        ©️ 2025 G-Z
+      </div>
+    </div>
+  </footer>
+
+  <!-- 모달 -->
+  <div id="genderModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header" style="text-decoration: underline;"> 출생 성별은 무엇인가요?</div>
+      <div class="modal-footer">
+        <button class="close-button" id="genderMan" value="남성">남성</button>
+        <button class="close-button" id="genderWoman" value="여성">여성</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getDatabase, ref, push, remove } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBwfLgPM_tz2aFW33ck5iF9SPSxpPpYSHU",
+      authDomain: "genz-9f218.firebaseapp.com",
+      databaseURL: "https://genz-9f218-default-rtdb.firebaseio.com",
+      projectId: "genz-9f218",
+      storageBucket: "genz-9f218.firebasestorage.app",
+      messagingSenderId: "286958713700",
+      appId: "1:286958713700:web:29d878befaf6dd8c049871",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    // 익명 인증
+    signInAnonymously(auth)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("사용자가 연결되었습니다: ", user.uid);
+      })
+      .catch((error) => {
+        console.error("익명 로그인 중 오류: ", error);
+      });
+
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("birthdate").setAttribute('max', today);
+
+    // 국가 목록 로드
+    fetch('https://restcountries.com/v3.1/all')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('네트워크 오류: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        const countrySelect = document.getElementById('countrySelect');
+        data.forEach(country => {
+          const option = document.createElement('option');
+          option.value = country.name.common;
+          option.textContent = country.name.common;
+          countrySelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error('국가 로드 중 오류:', error));
+
+    let lastSubmittedId = null;
+
+    document.querySelector('.submit-button').addEventListener('click', function() {
+      const birthdate = document.getElementById('birthdate').value;
+      const country = document.getElementById('countrySelect').value;
+
+      if (birthdate && country) {
+        const submitButton = document.querySelector('.submit-button');
+        submitButton.textContent = "잠시 기다려 주세요...";
+        submitButton.style.backgroundColor = 'orange';
+
+        document.getElementById('genderModal').style.display = 'block';
+      } else {
+        alert("생년월일을 입력하고 국가를 선택하세요!");
+      }
+    });
+
+    document.getElementById('genderMan').addEventListener('click', function() {
+      submitData("남성");
+    });
+    document.getElementById('genderWoman').addEventListener('click', function() {
+      submitData("여성");
+    });
+
+    function submitData(gender) {
+      const birthdate = document.getElementById('birthdate').value;
+      const country = document.getElementById('countrySelect').value;
+      const submitButton = document.querySelector('.submit-button');
+
+      const newEntryRef = push(ref(database, 'birthdates'), {
+        date: birthdate,
+        country: country,
+        gender: gender
+      });
+
+      lastSubmittedId = newEntryRef.key;
+
+      newEntryRef.then(() => {
+        submitButton.style.backgroundColor = 'green';
+        submitButton.textContent = "제출됨";
+        submitButton.disabled = true;
+        document.getElementById('resetButton').style.display = "block";
+        document.getElementById('genderModal').style.display = 'none';
+      }).catch((error) => {
+        submitButton.style.backgroundColor = 'red';
+        submitButton.textContent = "오류";
+        console.error("제출 중 오류: ", error);
+      });
+    }
+
+    document.getElementById('resetButton').addEventListener('click', function() {
+      if (lastSubmittedId) {
+        remove(ref(database, `birthdates/${lastSubmittedId}`))
+          .then(() => {
+            document.getElementById('birthdate').value = '';
+            document.getElementById('countrySelect').value = '';
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.textContent = "제출";
+            submitButton.style.backgroundColor = '#007bff';
+            submitButton.disabled = false;
+            document.getElementById('resetButton').style.display = "none";
+          })
+          .catch((error) => {
+            console.error("데이터 리셋 중 오류: ", error);
+          });
+      }
+    });
+
+    // 모달을 외부 클릭으로 닫기
+    window.onclick = function(event) {
+      const modal = document.getElementById('genderModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+        const submitButton = document.querySelector('.submit-button');
+        submitButton.style.backgroundColor = 'red';
+        submitButton.textContent = "오류";
+      }
+    };
+  </script>
+</body>
+</html>
