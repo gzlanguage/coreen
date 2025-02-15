@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-Z</title>
+    <link href="https://fonts.googleapis.com/css2?family=Billabong&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --primary-dark: #0056b3;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --white: #ffffff;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 12px 15px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        a.logo {
+            font-size: 1.6em;
+            font-family: 'Billabong', cursive;
+            color: var(--primary-color);
+            border: 1.5px solid var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        a.logo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            width: 100%;
+            margin: 2px 0;
+        }
+
+        .paragraph-container {
+            padding: 15px;
+            font-size: 0.9em;
+            text-align: center;
+            background-color: #e9f5ff;
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            margin: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .paragraph-container p {
+            margin: 8px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            a.logo {
+                font-size: 1.4em;
+            }
+
+            .paragraph-container {
+                margin: 10px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" translate="no">G-Z</a>
+    </header>
+    <div class="divider"></div>
+
+    <div class="paragraph-container">
+        <p><strong>당신의 의견은 우리에게 중요합니다! 우리의 발견 외에도 다양한 문제에 대한 해결책을 탐구할 기회가 있습니다. 경험을 풍부하게 하고 우리의 발견을 더욱 매력적으로 만들기 위한 개선 제안이나 주제 아이디어가 있습니까? 우리는 그것을 받게 되어 기쁩니다! 제안은 아래 주소로 보내주세요: <a href="mailto:kabakrm11@gmail.com">kabakrm11@gmail.com</a>.
+
+당신의 아이디어가 선택되면 이 제안의 저자로서 크레딧이 주어집니다. 모든 제안은 비영리적이어야 한다는 점에 유의해 주세요. 수신 후 알림을 드리며, 기꺼이 당신의 제안을 통합하겠습니다. 귀중한 기여에 감사드립니다!</strong></p>
+    </div>
+</body>
+</html>
