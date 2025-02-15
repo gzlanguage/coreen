@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="no">G-Z</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Billabong&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5; /* 밝은 배경 색상 */
+            color: var(--text-color);
+            font-family: 'Roboto', Arial, sans-serif; /* 유사한 글꼴 사용 */
+            padding: 20px;
+            margin: 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .header {
+            font-size: 1.8em;
+            font-family: 'Billabong', cursive;
+            color: #007BFF; /* 파란색 */
+            border: 1.5px solid #007BFF; /* 파란색 테두리 */
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 10px; /* 둥근 테두리 */
+        }
+        .divider {
+            height: 1px;
+            background-color: #007BFF; /* 테두리 색상 */
+            width: 100%;
+            margin: 5px 0;
+        }
+        .short-divider {
+            width: 50%;
+            margin: 10px auto;
+        }
+        .content {
+            text-align: center;
+            margin-top: 60px;
+        }
+        h1, h2 {
+            margin-bottom: 5px;
+            font-size: 2em;
+            text-decoration: underline;
+            color: #007BFF; /* 파란색 */
+        }
+        .social-message {
+            margin-top: 30px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* 아이콘 사이 간격 */
+            margin-top: 20px;
+        }
+        .icon {
+            font-size: 30px; 
+            color: #007BFF; /* 파란색 */
+            transition: color 0.3s;
+            border: 1px solid #007BFF; /* 파란색 테두리 */
+            border-radius: 3px;
+            padding: 8px; 
+            background-color: rgba(0, 119, 190, 0.1); /* 밝은 배경 */
+            display: inline-block;
+        }
+        .icon:hover {
+            color: #005f8d; /* 마우스 오버 색상 */
+            background-color: rgba(0, 119, 190, 0.2);
+        }
+        .or-divider {
+            display: flex;
+            align-items: center;
+            margin: 60px 0;
+        }
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #007BFF; /* 파란색 테두리 */
+        }
+        .or-divider::before {
+            margin-right: 10px;
+        }
+        .or-divider::after {
+            margin-left: 10px;
+        }
+        .copy-message {
+            margin-top: 30px;
+        }
+        .copy-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: 1px solid #007BFF; /* 파란색 테두리 */
+            background-color: transparent;
+            color: #007BFF; /* 파란색 */
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: rgba(0, 119, 190, 0.1);
+            color: white;
+        }
+        .copy-status {
+            margin-top: 10px;
+            color: #007BFF; /* 파란색 */
+        }
+        .copyright {
+            margin-top: 40px;
+            color: darkgray;
+            font-size: 0.8em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="text-decoration: none; color: inherit;">
+        <div class="header-container">
+            <div class="header" translate="no"><strong>G-Z</strong></div>
+        </div>
+    </a>
 
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1>GZ 공유하기</h1>
+        <div class="short-divider"></div>
+        <p class="social-message">우리가 누구인지, 세상에 어떻게 속하는지 알아봅시다! 오락 외에도 우리의 세대에 대해 더 알아봅시다:</p>
+
+        <div class="social-icons">
+            <a href="https://www.g-z.online" target="_blank" class="icon" onclick="share('Facebook')">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?text=G-Z%20에%20가입하세요%20!%20함께,%20우리%20세대의%20매력적인%20비밀을%20발견하고,%20흥미로운%20발견과%20오락의%20순간을%20경험합시다.%20이%20독특한%20모험의%20일원이%20되세요!%20🌟%20https://www.g-z.online" target="_blank" class="icon" onclick="share('WhatsApp')">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://telegram.me/share/url?url=https://www.g-z.online&text=G-Z%20에%20가입하세요%20!%20함께,%20우리%20세대의%20매력적인%20비밀을%20발견하고,%20흥미로운%20발견과%20오락의%20순간을%20경험합시다.%20이%20독특한%20모험의%20일원이%20되세요!%20🌟" target="_blank" class="icon" onclick="share('Telegram')">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://www.g-z.online" target="_blank" class="icon" onclick="share('Twitter')">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.g-z.online" target="_blank" class="icon" onclick="share('WeChat')">
+                <i class="fab fa-weixin"></i>
+            </a>
+        </div>
+
+        <div class="or-divider">
+            <span style="color: #007BFF;">또는</span> <!-- 파란색 -->
+        </div>
+
+        <p class="copy-message">공유 링크 복사하기:</p>
+        <button class="copy-button" onclick="copyLink()">복사</button>
+        <p class="copy-status" id="copyStatus"></p>
+    </div>
+
+    <div class="copyright">
+        &copy; 2025 <span translate="no">G-Z</span>. 모든 권리 보유.
+    </div>
+
+    <script>
+        const shareText = "G-Z에 가입하세요! 함께, 우리 세대의 매력적인 비밀을 발견하고, 흥미로운 발견과 오락의 순간을 경험합시다. 이 독특한 모험의 일원이 되세요! 🌟";
+        const shareLink = "https://www.g-z.online";
+
+        function copyLink() {
+            navigator.clipboard.writeText(shareLink).then(() => {
+                document.getElementById("copyStatus").innerText = "다음 공유 링크가 클립보드에 복사되었습니다: " + shareLink;
+            }).catch(err => {
+                console.error("텍스트 복사 중 오류 발생: ", err);
+                document.getElementById("copyStatus").innerText = "텍스트 복사 중 오류 발생.";
+            });
+        }
+
+        function share(platform) {
+            let url;
+            switch (platform) {
+                case 'Facebook':
+                    url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareLink)}&quote=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'WeChat':
+                    alert("WeChat에서의 공유는 일반적으로 앱을 통해 이루어집니다.");
+                    return;
+                case 'Twitter':
+                    url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareLink)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'WhatsApp':
+                    url = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}%20${encodeURIComponent(shareLink)}`;
+                    break;
+                case 'Telegram':
+                    url = `https://telegram.me/share/url?url=${encodeURIComponent(shareLink)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+            }
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
