@@ -25,9 +25,9 @@
             font-family: 'Billabong', cursive;
             color: #007BFF; /* 파란색 */
             border: 1.5px solid #007BFF; /* 파란색 테두리 */
-            padding: 5px 10px;
+            padding: 4px;
             display: inline-block;
-            border-radius: 10px; /* 둥근 테두리 */
+            border-radius: 12px; /* 둥근 모서리 */
         }
         .divider {
             height: 1px;
@@ -55,7 +55,7 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px; /* 아이콘 사이 간격 */
+            gap: 15px; /* 아이콘 간의 간격 */
             margin-top: 20px;
         }
         .icon {
@@ -63,13 +63,13 @@
             color: #007BFF; /* 파란색 */
             transition: color 0.3s;
             border: 1px solid #007BFF; /* 파란색 테두리 */
-            border-radius: 3px;
+            border-radius: 10px;
             padding: 8px; 
             background-color: rgba(0, 119, 190, 0.1); /* 밝은 배경 */
             display: inline-block;
         }
         .icon:hover {
-            color: #005f8d; /* 마우스 오버 색상 */
+            color: #005f8d; /* 호버 색상 */
             background-color: rgba(0, 119, 190, 0.2);
         }
         .or-divider {
@@ -95,9 +95,10 @@
         }
         .copy-button {
             margin-top: 10px;
-            padding: 10px 20px;
+            padding: 10px 17px;
             border: 1px solid #007BFF; /* 파란색 테두리 */
-            background-color: transparent;
+            border-radius: 13px;
+            background-color: rgba(0, 119, 190, 0.1); /* 밝은 배경 */
             color: #007BFF; /* 파란색 */
             cursor: pointer;
             font-size: 16px;
@@ -111,12 +112,7 @@
             margin-top: 10px;
             color: #007BFF; /* 파란색 */
         }
-        .copyright {
-            margin-top: 40px;
-            color: darkgray;
-            font-size: 0.8em;
-            text-align: center;
-        }
+        
     </style>
 </head>
 <body>
@@ -129,18 +125,18 @@
     <div class="divider"></div>
 
     <div class="content">
-        <h1>GZ 공유하기</h1>
+        <h1>G-Z 공유하기</h1>
         <div class="short-divider"></div>
-        <p class="social-message">우리가 누구인지, 세상에 어떻게 속하는지 알아봅시다! 오락 외에도 우리의 세대에 대해 더 알아봅시다:</p>
+        <p class="social-message">우리가 누구인지, 그리고 세상에 어떻게 속하는지를 알아봅시다! 오락 외에도 우리의 세대에 대해 더 알아봅시다:</p>
 
         <div class="social-icons">
             <a href="https://www.g-z.online" target="_blank" class="icon" onclick="share('Facebook')">
                 <i class="fab fa-facebook"></i>
             </a>
-            <a href="https://api.whatsapp.com/send?text=G-Z%20에%20가입하세요%20!%20함께,%20우리%20세대의%20매력적인%20비밀을%20발견하고,%20흥미로운%20발견과%20오락의%20순간을%20경험합시다.%20이%20독특한%20모험의%20일원이%20되세요!%20🌟%20https://www.g-z.online" target="_blank" class="icon" onclick="share('WhatsApp')">
+            <a href="https://api.whatsapp.com/send?text=G-Z에%20가입하세요%20!%20함께,%20우리의%20세대의%20매혹적인%20비밀을%20발견하고,%20흥미로운%20발견과%20오락의%20순간을%20경험해봅시다.%20이%20독특한%20모험의%20일원이%20되어%20주세요!%20🌟%20https://www.g-z.online" target="_blank" class="icon" onclick="share('WhatsApp')">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="https://telegram.me/share/url?url=https://www.g-z.online&text=G-Z%20에%20가입하세요%20!%20함께,%20우리%20세대의%20매력적인%20비밀을%20발견하고,%20흥미로운%20발견과%20오락의%20순간을%20경험합시다.%20이%20독특한%20모험의%20일원이%20되세요!%20🌟" target="_blank" class="icon" onclick="share('Telegram')">
+            <a href="https://telegram.me/share/url?url=https://www.g-z.online&text=G-Z에%20가입하세요%20!%20함께,%20우리의%20세대의%20매혹적인%20비밀을%20발견하고,%20흥미로운%20발견과%20오락의%20순간을%20경험해봅시다.%20이%20독특한%20모험의%20일원이%20되어%20주세요!%20🌟" target="_blank" class="icon" onclick="share('Telegram')">
                 <i class="fab fa-telegram"></i>
             </a>
             <a href="https://www.g-z.online" target="_blank" class="icon" onclick="share('Twitter')">
@@ -160,20 +156,17 @@
         <p class="copy-status" id="copyStatus"></p>
     </div>
 
-    <div class="copyright">
-        &copy; 2025 <span translate="no">G-Z</span>. 모든 권리 보유.
-    </div>
-
+    
     <script>
-        const shareText = "G-Z에 가입하세요! 함께, 우리 세대의 매력적인 비밀을 발견하고, 흥미로운 발견과 오락의 순간을 경험합시다. 이 독특한 모험의 일원이 되세요! 🌟";
+        const shareText = "G-Z에 가입하세요! 함께, 우리의 세대의 매혹적인 비밀을 발견하고, 흥미로운 발견과 오락의 순간을 경험해봅시다. 이 독특한 모험의 일원이 되어주세요! 🌟";
         const shareLink = "https://www.g-z.online";
 
         function copyLink() {
             navigator.clipboard.writeText(shareLink).then(() => {
                 document.getElementById("copyStatus").innerText = "다음 공유 링크가 클립보드에 복사되었습니다: " + shareLink;
             }).catch(err => {
-                console.error("텍스트 복사 중 오류 발생: ", err);
-                document.getElementById("copyStatus").innerText = "텍스트 복사 중 오류 발생.";
+                console.error("텍스트 복사 오류: ", err);
+                document.getElementById("copyStatus").innerText = "텍스트 복사 오류.";
             });
         }
 
